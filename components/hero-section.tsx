@@ -20,9 +20,9 @@ export function HeroSection() {
   }
 
   return (
-    <section className="min-h-screen bg-[#F5F5F7] pt-20">
+    <section className="bg-[#F5F5F7] pt-32 pb-0">
       {/* Hero Content */}
-      <div className="flex items-center justify-center px-6 md:px-12 min-h-screen">
+      <div className="px-6 md:px-12 pb-8">
         <div className="max-w-6xl mx-auto text-center">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
@@ -60,27 +60,27 @@ export function HeroSection() {
               <ArrowRight className="w-5 h-5 ml-2" />
             </Link>
           </motion.div>
-
-          {/* Phone Mockups */}
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.8 }}
-            className="relative max-w-4xl mx-auto"
-          >
-            <div className="flex justify-center items-center">
-              <Image
-                src="/images/hero-phones.png"
-                alt="Momentam App Screenshots"
-                width={800}
-                height={600}
-                className="w-full h-auto max-w-4xl"
-                priority
-              />
-            </div>
-          </motion.div>
         </div>
       </div>
+
+      {/* Phone Mockups - At bottom of section */}
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, delay: 0.8 }}
+        className="relative max-w-6xl mx-auto px-6 md:px-12"
+      >
+        <div className="flex justify-center items-end">
+          <Image
+            src="/images/hero-phones.png"
+            alt="Momentam App Screenshots"
+            width={800}
+            height={600}
+            className="w-full h-auto max-w-4xl"
+            priority
+          />
+        </div>
+      </motion.div>
       
       <DownloadModal 
         isOpen={showModal} 

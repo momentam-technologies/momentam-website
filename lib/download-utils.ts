@@ -6,15 +6,17 @@ export const APP_LINKS = {
 export function detectDevice() {
   if (typeof window === 'undefined') return 'desktop'
   
-  const userAgent = window.navigator.userAgent.toLowerCase()
-  const isAndroid = /android/.test(userAgent)
-  const isIOS = /iphone|ipad|ipod/.test(userAgent)
-  const isMobile = /mobile/.test(userAgent) || isAndroid || isIOS
+  const userAgent = navigator.userAgent.toLowerCase()
   
-  if (isAndroid) return 'android'
-  if (isIOS) return 'ios'
-  if (isMobile) return 'mobile'
-  return 'desktop'
+  if (/android/.test(userAgent)) {
+    return 'android'
+  } else if (/iphone|ipad|ipod/.test(userAgent)) {
+    return 'ios'
+  } else if (/mobile/.test(userAgent)) {
+    return 'mobile'
+  } else {
+    return 'desktop'
+  }
 }
 
 export function handleSmartDownload() {
@@ -43,10 +45,16 @@ export function generateQRCodeUrl(url: string, size: number = 200) {
   return `https://api.qrserver.com/v1/create-qr-code/?size=${size}x${size}&data=${encodeURIComponent(url)}`
 }
 
-// Generate universal download link for SMS sharing
+// Generate universal download link for smart QR code
 export function getUniversalDownloadLink(baseUrl?: string) {
   const domain = baseUrl || (typeof window !== 'undefined' ? window.location.origin : '')
   return `${domain}/download`
+}
+
+// Generate smart QR code URL that redirects based on device
+export function generateSmartQRCodeUrl(size: number = 200, baseUrl?: string) {
+  const universalLink = getUniversalDownloadLink(baseUrl)
+  return generateQRCodeUrl(universalLink, size)
 }
 
 // Generate SMS message with download link

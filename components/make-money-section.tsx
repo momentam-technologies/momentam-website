@@ -11,7 +11,7 @@ export function MakeMoneySection() {
   const isInView = useInView(ref, { once: true, margin: "-100px" })
 
   return (
-    <section ref={ref} className="min-h-screen bg-[#F5F5F7] flex items-center py-20">
+    <section ref={ref} className="min-h-screen bg-white flex items-center py-20">
       <div className="max-w-6xl mx-auto px-6 md:px-12">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Image */}

@@ -65,5 +65,52 @@
   }
   body {
     @apply bg-background text-foreground;
+    /* iOS-specific fixes */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* Prevent iOS bounce scrolling */
+    overscroll-behavior: none;
+    /* Fix iOS viewport issues */
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+  }
+  
+  html {
+    /* Fix iOS viewport height issues */
+    height: -webkit-fill-available;
+  }
+  
+  /* iOS-specific input fixes */
+  input, textarea, select {
+    /* Prevent iOS zoom on focus */
+    font-size: 16px;
+    /* Fix iOS input styling */
+    -webkit-appearance: none;
+    border-radius: 0;
+  }
+  
+  /* Fix iOS button styling */
+  button {
+    -webkit-appearance: none;
+    border-radius: 0;
+  }
+  
+  /* Prevent iOS text size adjustment */
+  body {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+  
+  /* Fix iOS scroll performance */
+  * {
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Prevent iOS selection issues */
+  .no-select {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
   }
 }

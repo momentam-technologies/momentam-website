@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   title: "Momentam",
   description: "Your Event Photos, Instantly - Professional photography service platform",
   generator: 'Next.js',
-  metadataBase: new URL('https://effervescent-custard-a8f69c.netlify.app', 'https://momentam.io'),
+  metadataBase: new URL('https://momentam.io'),
   keywords: ['photography', 'events', 'photos', 'instant', 'professional'],
   authors: [{ name: 'Momentam Team' }],
   creator: 'Momentam',

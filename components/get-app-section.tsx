@@ -101,7 +101,7 @@ export function GetAppSection() {
                   className="w-full bg-[#000099] hover:bg-[#000077] text-white py-4 rounded-2xl text-lg font-semibold transition-all duration-300 group-hover:shadow-lg"
                 >
                   <Download className="w-5 h-5 mr-2" />
-                  Download App
+                  Download the App
                 </Button>
               </div>
             </div>
@@ -155,7 +155,7 @@ export function GetAppSection() {
                   className="w-full bg-[#000099] hover:bg-[#000077] text-white py-4 rounded-2xl text-lg font-semibold transition-all duration-300 group-hover:shadow-lg"
                 >
                   <Download className="w-5 h-5 mr-2" />
-                  Download App
+                  Download the App
                 </Button>
               </div>
             </div>

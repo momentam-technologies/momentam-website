@@ -15,9 +15,9 @@ export default function Home() {
       if (typeof window !== 'undefined') {
         // Check if CSS.supports is available and smooth scrolling is supported
         if ('CSS' in window && CSS.supports && CSS.supports('scroll-behavior', 'smooth')) {
-          document.documentElement.style.scrollBehavior = "smooth"
-        }
-        
+      document.documentElement.style.scrollBehavior = "smooth"
+    }
+
         // iOS-specific fixes with safer user agent detection
         const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream
         
@@ -33,7 +33,7 @@ export default function Home() {
           window.addEventListener('orientationchange', setViewportHeight)
           
           // Fix iOS input zoom with more precise viewport handling
-          const viewport = document.querySelector('meta[name="viewport"]')
+    const viewport = document.querySelector('meta[name="viewport"]')
           if (viewport) {
             viewport.setAttribute(
               'content', 
@@ -54,8 +54,8 @@ export default function Home() {
 
     return () => {
       try {
-        if (typeof window !== 'undefined' && document.documentElement.style.scrollBehavior) {
-          document.documentElement.style.scrollBehavior = "auto"
+      if (typeof window !== 'undefined' && document.documentElement.style.scrollBehavior) {
+        document.documentElement.style.scrollBehavior = "auto"
         }
       } catch (error) {
         console.warn('Cleanup failed:', error)

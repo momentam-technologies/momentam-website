@@ -10,6 +10,10 @@ export function MakeMoneySection() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: "-100px" })
 
+  const handleGetStartedClick = () => {
+    window.open('https://wa.me/message/3MBI2KT5I4DMI1', '_blank')
+  }
+
   return (
     <section ref={ref} className="min-h-screen bg-white flex items-center py-20">
       <div className="max-w-6xl mx-auto px-6 md:px-12">
@@ -47,7 +51,10 @@ export function MakeMoneySection() {
               conferences, graduations, weddings. Get paid for doing what you love
             </p>
 
-            <Button className="bg-[#000099] hover:bg-[#000077] text-white px-8 py-3 rounded-full text-lg border-2 border-[#000099] hover:border-[#000077] transition-all">
+            <Button 
+              onClick={handleGetStartedClick}
+              className="bg-[#000099] hover:bg-[#000077] text-white px-8 py-3 rounded-full text-lg border-2 border-[#000099] hover:border-[#000077] transition-all"
+            >
               Get started
             </Button>
           </motion.div>

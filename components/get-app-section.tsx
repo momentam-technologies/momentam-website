@@ -47,7 +47,7 @@ export function GetAppSection() {
             Get the App
           </h2>
           <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
-            Download Momentam and start capturing your event memories instantly
+            Download Momentam and start capturing your event memories in seconds
           </p>
         </motion.div>
 
@@ -78,14 +78,14 @@ export function GetAppSection() {
               <div className="text-center mb-8 flex-grow">
                 <h3 className="text-2xl font-bold text-gray-900 mb-3">Momentam App</h3>
                 <p className="text-gray-600 mb-6 leading-relaxed min-h-[3rem]">
-                  For event attendees. Book photographers and get your photos instantly.
+                  For event attendees. Book photographers and get your photos in seconds.
                 </p>
                 
                 {/* Features */}
                 <div className="space-y-2 mb-8">
                   <div className="flex items-center justify-center gap-2 text-sm text-gray-700">
                     <Smartphone className="w-4 h-4 text-[#000099]" />
-                    <span>Instant photo delivery</span>
+                    <span>Photo delivery in seconds</span>
                   </div>
                   <div className="flex items-center justify-center gap-2 text-sm text-gray-700">
                     <Download className="w-4 h-4 text-[#000099]" />
@@ -117,13 +117,13 @@ export function GetAppSection() {
             <div className="bg-white rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 group-hover:scale-105 border border-gray-100 h-full flex flex-col">
               {/* App Icon */}
               <div className="flex justify-center mb-6">
-                <div className="w-20 h-20 rounded-2xl flex items-center justify-center shadow-lg">
+                <div className="w-20 h-20 bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl flex items-center justify-center shadow-lg overflow-hidden">
                   <Image
                     src="/images/momentam icon studio.png"
                     alt="Momentam Studio Logo"
                     width={80}
                     height={80}
-                    className="w-20 h-20 object-contain"
+                    className="w-20 h-20 object-contain rounded-2xl"
                   />
                 </div>
               </div>

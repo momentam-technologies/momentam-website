@@ -29,6 +29,13 @@
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
+    
+    /* iOS-specific custom properties */
+    --vh: 1vh;
+    --safe-area-inset-top: 0px;
+    --safe-area-inset-right: 0px;
+    --safe-area-inset-bottom: 0px;
+    --safe-area-inset-left: 0px;
   }
 
   .dark {
@@ -63,6 +70,18 @@
   * {
     @apply border-border;
   }
+  
+  html {
+    /* Fix iOS viewport height issues */
+    height: 100%;
+    height: -webkit-fill-available;
+    /* iOS-specific safe area support */
+    padding-top: env(safe-area-inset-top);
+    padding-right: env(safe-area-inset-right);
+    padding-bottom: env(safe-area-inset-bottom);
+    padding-left: env(safe-area-inset-left);
+  }
+  
   body {
     @apply bg-background text-foreground;
     /* iOS-specific fixes */
@@ -73,11 +92,30 @@
     /* Fix iOS viewport issues */
     min-height: 100vh;
     min-height: -webkit-fill-available;
+    min-height: calc(var(--vh, 1vh) * 100);
+    /* Prevent iOS text size adjustment */
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    /* Force hardware acceleration on iOS */
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    /* Prevent iOS rubber band effect */
+    position: fixed;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
   }
   
-  html {
-    /* Fix iOS viewport height issues */
-    height: -webkit-fill-available;
+  #__next, main {
+    /* Allow scrolling within the fixed body */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
   }
   
   /* iOS-specific input fixes */
@@ -86,24 +124,33 @@
     font-size: 16px;
     /* Fix iOS input styling */
     -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
     border-radius: 0;
+    /* Prevent iOS input highlight */
+    -webkit-tap-highlight-color: transparent;
+    /* Fix iOS autocorrect/autocomplete */
+    autocorrect: off;
+    autocomplete: off;
+    autocapitalize: off;
+    spellcheck: false;
   }
   
   /* Fix iOS button styling */
   button {
     -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
     border-radius: 0;
+    -webkit-tap-highlight-color: transparent;
+    /* Prevent iOS button zoom */
+    touch-action: manipulation;
   }
   
-  /* Prevent iOS text size adjustment */
-  body {
-    -webkit-text-size-adjust: 100%;
-    text-size-adjust: 100%;
-  }
-  
-  /* Fix iOS scroll performance */
-  * {
-    -webkit-overflow-scrolling: touch;
+  /* Fix iOS link styling */
+  a {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
   }
   
   /* Prevent iOS selection issues */
@@ -112,5 +159,36 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+  }
+  
+  /* iOS-specific scroll performance improvements */
+  .ios-scroll {
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+  }
+  
+  /* Fix iOS flexbox issues */
+  .ios-flex-fix {
+    min-height: 0;
+    min-width: 0;
+  }
+  
+  /* iOS-specific image fixes */
+  img {
+    /* Prevent iOS image resize */
+    max-width: 100%;
+    height: auto;
+    /* Fix iOS image rendering */
+    image-rendering: -webkit-optimize-contrast;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+  
+  /* iOS-specific animation performance */
+  * {
+    -webkit-backface-visibility: hidden;
+    -webkit-perspective: 1000;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
   }
 }

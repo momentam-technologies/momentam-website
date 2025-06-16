@@ -65,24 +65,7 @@ export function HowItWorksSection() {
           <p className="text-lg text-gray-600">Discover how Momentam makes photo sharing effortless</p>
         </motion.div>
 
-        {/* Navigation Arrows - Only visible on mobile/tablet */}
-        <div className="flex items-center gap-4 mb-8 md:hidden">
-          <button
-            onClick={prevStep}
-            className="w-12 h-12 rounded-full border-2 border-gray-300 flex items-center justify-center hover:border-[#000099] hover:text-[#000099] transition-colors"
-          >
-            <ChevronLeft className="w-6 h-6" />
-          </button>
-          <button
-            onClick={nextStep}
-            className="w-12 h-12 rounded-full bg-gray-900 text-white flex items-center justify-center hover:bg-gray-800 transition-colors"
-          >
-            <ChevronRight className="w-6 h-6" />
-          </button>
-          <span className="text-sm text-gray-600 ml-2">
-            {currentStep + 1} of {steps.length}
-          </span>
-        </div>
+
 
         {/* Steps Grid */}
         <div className="grid md:grid-cols-3 gap-8">
@@ -250,19 +233,41 @@ export function HowItWorksSection() {
           )}
         </div>
 
-        {/* Step indicator dots for mobile/tablet */}
-        <div className="flex justify-center gap-2 mt-8 md:hidden">
-          {steps.map((_, index) => (
-            <motion.button
-              key={index}
-              onClick={() => setCurrentStep(index)}
-              className={`w-3 h-3 rounded-full transition-colors ${
-                index === currentStep ? "bg-[#000099]" : "bg-gray-300"
-              }`}
-              whileHover={{ scale: 1.2 }}
-              whileTap={{ scale: 0.9 }}
-            />
-          ))}
+        {/* Navigation Arrows and Step indicator dots for mobile/tablet */}
+        <div className="md:hidden">
+          {/* Navigation Arrows */}
+          <div className="flex items-center justify-center gap-4 mb-6 mt-8">
+            <button
+              onClick={prevStep}
+              className="w-12 h-12 rounded-full border-2 border-gray-300 flex items-center justify-center hover:border-[#000099] hover:text-[#000099] transition-colors"
+            >
+              <ChevronLeft className="w-6 h-6" />
+            </button>
+            <button
+              onClick={nextStep}
+              className="w-12 h-12 rounded-full bg-gray-900 text-white flex items-center justify-center hover:bg-gray-800 transition-colors"
+            >
+              <ChevronRight className="w-6 h-6" />
+            </button>
+            <span className="text-sm text-gray-600 ml-2">
+              {currentStep + 1} of {steps.length}
+            </span>
+          </div>
+
+          {/* Step indicator dots */}
+          <div className="flex justify-center gap-2">
+            {steps.map((_, index) => (
+              <motion.button
+                key={index}
+                onClick={() => setCurrentStep(index)}
+                className={`w-3 h-3 rounded-full transition-colors ${
+                  index === currentStep ? "bg-[#000099]" : "bg-gray-300"
+                }`}
+                whileHover={{ scale: 1.2 }}
+                whileTap={{ scale: 0.9 }}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://effervescent-custard-a8f69c.netlify.app/sitemap.xml 

@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: 'https://momentam.io/images/logo.png',
+        url: '/images/logo.png',
         width: 512,
         height: 512,
         alt: 'Momentam Logo',
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Momentam | Get Your Event Photos in Seconds",
     description: "Don't wait for your event photos. Download the Momentam app, book a photographer, and get them in seconds. Trusted for all events including conferences, exhibitions, weddings, parties, and university graduations.",
-    images: ["https://momentam.io/images/logo.png"],
+    images: ["/images/logo.png"],
   },
   icons: {
     icon: [

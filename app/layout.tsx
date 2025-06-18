@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   generator: 'Next.js',
   metadataBase: new URL('https://momentam.io'),
   keywords: ['photography', 'events', 'photos', 'instant', 'professional', 'conferences', 'exhibitions', 'weddings', 'parties', 'graduations'],
-  authors: [{ name: 'Momentam Team' }],
+  authors: [{ name: 'Momentam Limited' }],
   creator: 'Momentam',
   publisher: 'Momentam',
   formatDetection: {

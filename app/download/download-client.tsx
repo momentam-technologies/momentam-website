@@ -128,8 +128,7 @@ export function DownloadPageClient() {
               <div className="bg-gray-50 rounded-2xl p-6">
                 <h3 className="font-semibold text-gray-900 mb-3">What is Momentam?</h3>
                 <p className="text-sm text-gray-600 leading-relaxed">
-                  Book photographers at events and get your photos instantly on your phone. 
-                  No contact exchange needed - just scan, book, and receive!
+                  Don't Wait for Your event photos. Download Momentam app, book a photographer and get them in seconds. Trusted for all events including conferences, exhibitions, wedding, parties and university graduations.
                 </p>
               </div>
             </motion.div>

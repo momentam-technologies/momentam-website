@@ -33,14 +33,14 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: '/images/logo2.jpeg', sizes: '32x32', type: 'image/jpeg' },
-      { url: '/images/logo2.jpeg', sizes: '16x16', type: 'image/jpeg' },
+      { url: '/images/logo.png', sizes: '32x32', type: 'image/png' },
+      { url: '/images/logo.png', sizes: '16x16', type: 'image/png' },
     ],
-    shortcut: '/images/logo2.jpeg',
+    shortcut: '/images/logo.png',
     apple: [
-      { url: '/images/logo2.jpeg', sizes: '180x180', type: 'image/jpeg' },
-      { url: '/images/logo2.jpeg', sizes: '152x152', type: 'image/jpeg' },
-      { url: '/images/logo2.jpeg', sizes: '120x120', type: 'image/jpeg' },
+      { url: '/images/logo.png', sizes: '180x180', type: 'image/png' },
+      { url: '/images/logo.png', sizes: '152x152', type: 'image/png' },
+      { url: '/images/logo.png', sizes: '120x120', type: 'image/png' },
     ],
   },
   manifest: '/site.webmanifest',
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     capable: true,
     statusBarStyle: 'default',
     title: 'Momentam',
-    startupImage: '/images/logo2.jpeg',
+    startupImage: '/images/logo.png',
   },
   other: {
     'mobile-web-app-capable': 'yes',
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
     'apple-mobile-web-app-title': 'Momentam',
     'application-name': 'Momentam',
     'msapplication-TileColor': '#000099',
-    'msapplication-TileImage': '/images/logo2.jpeg',
+    'msapplication-TileImage': '/images/logo.png',
     'theme-color': '#000099',
     'color-scheme': 'light',
     'supported-color-schemes': 'light',
@@ -79,7 +79,7 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-title" content="Momentam" />
         <meta name="application-name" content="Momentam" />
         <meta name="msapplication-TileColor" content="#000099" />
-        <meta name="msapplication-TileImage" content="/images/logo2.jpeg" />
+        <meta name="msapplication-TileImage" content="/images/logo.png" />
         <meta name="theme-color" content="#000099" />
         <meta name="color-scheme" content="light" />
         <meta name="supported-color-schemes" content="light" />

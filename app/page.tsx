@@ -19,7 +19,7 @@ export default function Home() {
     }
 
         // iOS-specific fixes with safer user agent detection
-        const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream
+        const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !(window as any).MSStream
         
         if (isIOS) {
           // Prevent iOS viewport height issues
@@ -64,13 +64,18 @@ export default function Home() {
   }, [])
 
   return (
-    <main className="overflow-x-hidden min-h-screen min-h-[100vh] min-h-[calc(var(--vh,1vh)*100)]">
+    <>
+      {/* Fixed Header - stays at top */}
       <Header />
-      <HeroSection />
-      <MakeMoneySection />
-      <HowItWorksSection />
-      <GetAppSection />
-      <FooterSection />
-    </main>
+      
+      {/* Scrollable Main Content - scrolls behind header */}
+      <main className="overflow-x-hidden min-h-screen min-h-[100vh] min-h-[calc(var(--vh,1vh)*100)]">
+        <HeroSection />
+        <MakeMoneySection />
+        <HowItWorksSection />
+        <GetAppSection />
+        <FooterSection />
+      </main>
+    </>
   )
 }

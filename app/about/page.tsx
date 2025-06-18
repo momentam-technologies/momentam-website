@@ -7,13 +7,18 @@ import { FooterSection } from "@/components/footer-section"
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen">
+    <>
+      {/* Fixed Header - stays at top */}
       <Header />
-      <AboutHeroSection />
-      <MissionSection />
-      <ValuesSection />
-      <GetAppSection />
-      <FooterSection />
-    </main>
+      
+      {/* Scrollable Main Content - scrolls behind header */}
+      <main className="min-h-screen">
+        <AboutHeroSection />
+        <MissionSection />
+        <ValuesSection />
+        <GetAppSection />
+        <FooterSection />
+      </main>
+    </>
   )
 } 

@@ -13,12 +13,12 @@ export default function AboutPage() {
       
       {/* Scrollable Main Content - scrolls behind header */}
       <main className="min-h-screen">
-        <AboutHeroSection />
-        <MissionSection />
-        <ValuesSection />
-        <GetAppSection />
-        <FooterSection />
-      </main>
+      <AboutHeroSection />
+      <MissionSection />
+      <ValuesSection />
+      <GetAppSection />
+      <FooterSection />
+    </main>
     </>
   )
 } 

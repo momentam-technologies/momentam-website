@@ -13,12 +13,12 @@ export default function LearnMorePage() {
       
       {/* Scrollable Main Content - scrolls behind header */}
       <main className="min-h-screen">
-        <LearnMoreHeroSection />
-        <WhereMomentamHeroSection />
-        <WhyMomentamSection />
-        <GetAppSection />
-        <FooterSection />
-      </main>
+      <LearnMoreHeroSection />
+      <WhereMomentamHeroSection />
+      <WhyMomentamSection />
+      <GetAppSection />
+      <FooterSection />
+    </main>
     </>
   )
 } 

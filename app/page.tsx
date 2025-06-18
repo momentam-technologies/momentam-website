@@ -70,12 +70,12 @@ export default function Home() {
       
       {/* Scrollable Main Content - scrolls behind header */}
       <main className="overflow-x-hidden min-h-screen min-h-[100vh] min-h-[calc(var(--vh,1vh)*100)]">
-        <HeroSection />
-        <MakeMoneySection />
-        <HowItWorksSection />
-        <GetAppSection />
-        <FooterSection />
-      </main>
+      <HeroSection />
+      <MakeMoneySection />
+      <HowItWorksSection />
+      <GetAppSection />
+      <FooterSection />
+    </main>
     </>
   )
 }

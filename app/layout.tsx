@@ -18,11 +18,11 @@ export const viewport: Viewport = {
 }
 
 export const metadata: Metadata = {
-  title: "Momentam",
-  description: "Your Event Photos, Instantly - Professional photography service platform",
+  title: "Momentam | Get Your Event Photos in Seconds",
+  description: "Don't wait for your event photos. Download the Momentam app, book a photographer, and get them in seconds. Trusted for all events including conferences, exhibitions, weddings, parties, and university graduations.",
   generator: 'Next.js',
   metadataBase: new URL('https://momentam.io'),
-  keywords: ['photography', 'events', 'photos', 'instant', 'professional'],
+  keywords: ['photography', 'events', 'photos', 'instant', 'professional', 'conferences', 'exhibitions', 'weddings', 'parties', 'graduations'],
   authors: [{ name: 'Momentam Team' }],
   creator: 'Momentam',
   publisher: 'Momentam',
@@ -30,6 +30,26 @@ export const metadata: Metadata = {
     email: false,
     address: false,
     telephone: false,
+  },
+  openGraph: {
+    title: 'Momentam | Get Your Event Photos in Seconds',
+    description: 'Book a professional photographer through the Momentam app and receive your event photos instantly. Perfect for conferences, exhibitions, weddings, parties, and university graduations.',
+    url: 'https://momentam.io',
+    type: 'website',
+    images: [
+      {
+        url: '/images/logo.png',
+        width: 512,
+        height: 512,
+        alt: 'Momentam Logo',
+      },
+    ],
+  },
+  twitter: {
+    card: "summary",
+    title: "Momentam | Get Your Event Photos in Seconds",
+    description: "Don't wait for your event photos. Download the Momentam app, book a photographer, and get them in seconds.",
+    images: ["/images/logo.png"],
   },
   icons: {
     icon: [
@@ -61,6 +81,10 @@ export const metadata: Metadata = {
     'theme-color': '#000099',
     'color-scheme': 'light',
     'supported-color-schemes': 'light',
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 }
 

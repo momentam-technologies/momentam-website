@@ -33,12 +33,12 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'Momentam | Get Your Event Photos in Seconds',
-    description: 'Book a professional photographer through the Momentam app and receive your event photos instantly. Perfect for conferences, exhibitions, weddings, parties, and university graduations.',
+    description: "Don't wait for your event photos. Download the Momentam app, book a photographer, and get them in seconds. Trusted for all events including conferences, exhibitions, weddings, parties, and university graduations.",
     url: 'https://momentam.io',
     type: 'website',
     images: [
       {
-        url: '/images/logo.png',
+        url: 'https://momentam.io/images/logo.png',
         width: 512,
         height: 512,
         alt: 'Momentam Logo',
@@ -46,10 +46,10 @@ export const metadata: Metadata = {
     ],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: "Momentam | Get Your Event Photos in Seconds",
-    description: "Don't wait for your event photos. Download the Momentam app, book a photographer, and get them in seconds.",
-    images: ["/images/logo.png"],
+    description: "Don't wait for your event photos. Download the Momentam app, book a photographer, and get them in seconds. Trusted for all events including conferences, exhibitions, weddings, parties, and university graduations.",
+    images: ["https://momentam.io/images/logo.png"],
   },
   icons: {
     icon: [

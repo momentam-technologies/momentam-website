@@ -12,28 +12,29 @@ export function DownloadPageClient() {
   const [qrCodeUrl, setQrCodeUrl] = useState<string>('')
   const [qrCodeError, setQrCodeError] = useState(false)
 
+  // Add immediate script-based redirect at component level
   useEffect(() => {
-    // Detect device and immediately redirect mobile users
-    const detectedDevice = detectDevice()
-    setDevice(detectedDevice)
-    
-    // Initialize QR code URL
-    setQrCodeUrl(generateSmartQRCodeUrl(180))
-    
-    // More aggressive mobile redirect for QR code scanning
-    if (detectedDevice === 'android' || detectedDevice === 'ios') {
-      // Use setTimeout to ensure redirect happens after page loads
-      setTimeout(() => {
-        if (detectedDevice === 'ios') {
-          window.location.replace('https://apps.apple.com/tz/app/momentam/id6746681576')
-        } else {
-          window.location.replace('https://play.google.com/store/apps/details?id=com.momentam.app&pcampaignid=web_share')
-        }
-      }, 100)
-      return
+    // Try redirect immediately when component mounts
+    const checkAndRedirect = () => {
+      const ua = navigator.userAgent.toLowerCase()
+      
+      if (/android/.test(ua)) {
+        console.log('Immediate Android redirect')
+        document.location.href = 'https://play.google.com/store/apps/details?id=com.momentam.app&pcampaignid=web_share'
+        return true
+      } else if (/iphone|ipad|ipod/.test(ua)) {
+        console.log('Immediate iOS redirect')
+        document.location.href = 'https://apps.apple.com/tz/app/momentam/id6746681576'
+        return true
+      }
+      return false
     }
     
-    // Only show page for desktop users
+    // Try redirect immediately
+    if (checkAndRedirect()) return
+    
+    // If not mobile, continue with normal flow
+    setQrCodeUrl(generateSmartQRCodeUrl(180))
     setIsLoading(false)
   }, [])
 
@@ -70,20 +71,13 @@ export function DownloadPageClient() {
 
   const desktopMessage = getDesktopMessage()
 
+  // Show loading while redirecting mobile users
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-[#F5F5F7] flex items-center justify-center">
+      <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
-          <div className="w-16 h-16 bg-gradient-to-br from-[#000099] to-[#000077] rounded-xl flex items-center justify-center mx-auto mb-4 animate-pulse">
-            <Image
-              src="/images/logo.png"
-              alt="Momentam Logo"
-              width={32}
-              height={32}
-              className="w-8 h-8 object-contain filter brightness-0 invert"
-            />
-          </div>
-          <p className="text-gray-600">Loading...</p>
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#000099] mx-auto mb-4"></div>
+          <p>Redirecting...</p>
         </div>
       </div>
     )

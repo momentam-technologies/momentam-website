@@ -46,20 +46,7 @@ function isMobileUserAgent(userAgent: string): { isMobile: boolean; platform: 'i
 }
 
 export default function DownloadPage() {
-  // Get user agent from headers for server-side mobile detection
-  const headersList = headers()
-  const userAgent = headersList.get('user-agent') || ''
-  
-  // Check if mobile and redirect server-side for better QR code experience
-  const { isMobile, platform } = isMobileUserAgent(userAgent)
-  
-  if (isMobile) {
-    if (platform === 'ios') {
-      redirect('https://apps.apple.com/tz/app/momentam/id6746681576')
-    } else if (platform === 'android') {
-      redirect('https://play.google.com/store/apps/details?id=com.momentam.app&pcampaignid=web_share')
-    }
-  }
-  
+  // Temporarily disable server-side redirects to troubleshoot
+  // Let client-side handle all redirects for now
   return <DownloadPageClient />
 } 

@@ -42,7 +42,25 @@ export function handleSmartDownload() {
 }
 
 export function generateQRCodeUrl(url: string, size: number = 200) {
-  return `https://api.qrserver.com/v1/create-qr-code/?size=${size}x${size}&data=${encodeURIComponent(url)}`
+  // Primary QR service with fallback options for reliability
+  const encodedUrl = encodeURIComponent(url)
+  
+  // Return primary service URL
+  return `https://api.qrserver.com/v1/create-qr-code/?size=${size}x${size}&data=${encodedUrl}&format=png&margin=0`
+}
+
+// Fallback QR code generators in case primary fails
+export function getFallbackQRCodeUrl(url: string, size: number = 200) {
+  const encodedUrl = encodeURIComponent(url)
+  
+  // Alternative QR services for fallback
+  const fallbackServices = [
+    `https://chart.googleapis.com/chart?chs=${size}x${size}&cht=qr&chl=${encodedUrl}`,
+    `https://qrcode.tec-it.com/API/QRCode?data=${encodedUrl}&size=medium&dpi=${Math.round(size/2)}`,
+    `https://api.qrserver.com/v1/create-qr-code/?size=${size}x${size}&data=${encodedUrl}`
+  ]
+  
+  return fallbackServices[0] // Return first fallback option
 }
 
 // Generate universal download link for smart QR code

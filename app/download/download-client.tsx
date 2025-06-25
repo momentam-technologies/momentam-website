@@ -4,16 +4,21 @@ import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
 import { Smartphone, ArrowRight } from "lucide-react"
 import Image from "next/image"
-import { detectDevice, generateSmartQRCodeUrl } from "@/lib/download-utils"
+import { detectDevice, generateSmartQRCodeUrl, getFallbackQRCodeUrl } from "@/lib/download-utils"
 
 export function DownloadPageClient() {
   const [device, setDevice] = useState<string>('desktop')
   const [isLoading, setIsLoading] = useState(true)
+  const [qrCodeUrl, setQrCodeUrl] = useState<string>('')
+  const [qrCodeError, setQrCodeError] = useState(false)
 
   useEffect(() => {
     // Detect device and immediately redirect mobile users
     const detectedDevice = detectDevice()
     setDevice(detectedDevice)
+    
+    // Initialize QR code URL
+    setQrCodeUrl(generateSmartQRCodeUrl(180))
     
     // Immediate redirect for mobile devices
     if (detectedDevice === 'android' || detectedDevice === 'ios') {
@@ -29,6 +34,15 @@ export function DownloadPageClient() {
     // Only show page for desktop users
     setIsLoading(false)
   }, [])
+
+  // Handle QR code image error with fallback
+  const handleQrCodeError = () => {
+    if (!qrCodeError) {
+      console.log('Primary QR service failed, switching to fallback')
+      setQrCodeError(true)
+      setQrCodeUrl(getFallbackQRCodeUrl(qrCodeUrl.split('data=')[1]?.split('&')[0] || '', 180))
+    }
+  }
 
   // Desktop-only message since mobile users are redirected immediately
   const getDesktopMessage = () => {
@@ -122,11 +136,12 @@ export function DownloadPageClient() {
             >
               <div className="bg-gray-50 rounded-xl p-4 sm:p-6 mb-4 inline-block">
                 <Image
-                  src={generateSmartQRCodeUrl(180)}
+                  src={qrCodeUrl}
                   alt="Download Momentam App QR Code"
                   width={180}
                   height={180}
                   className="w-full h-auto max-w-[160px] sm:max-w-[180px]"
+                  onError={handleQrCodeError}
                 />
               </div>
             </motion.div>

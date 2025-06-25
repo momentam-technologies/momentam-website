@@ -20,14 +20,16 @@ export function DownloadPageClient() {
     // Initialize QR code URL
     setQrCodeUrl(generateSmartQRCodeUrl(180))
     
-    // Immediate redirect for mobile devices
+    // More aggressive mobile redirect for QR code scanning
     if (detectedDevice === 'android' || detectedDevice === 'ios') {
-      // For mobile devices, redirect to app stores
-      if (detectedDevice === 'ios') {
-        window.location.href = 'https://apps.apple.com/app/momentam'
-      } else {
-        window.location.href = 'https://play.google.com/store/apps/details?id=com.momentam'
-      }
+      // Use setTimeout to ensure redirect happens after page loads
+      setTimeout(() => {
+        if (detectedDevice === 'ios') {
+          window.location.replace('https://apps.apple.com/us/app/momentam/id6746681576')
+        } else {
+          window.location.replace('https://play.google.com/store/apps/details?id=com.momentam.app')
+        }
+      }, 100)
       return
     }
     

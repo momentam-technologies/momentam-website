@@ -1,6 +1,6 @@
 export const APP_LINKS = {
-  android: 'https://play.google.com/store/apps/details?id=com.momentam.app',
-  ios: 'https://apps.apple.com/us/app/momentam/id6746681576'
+  android: 'https://play.google.com/store/apps/details?id=com.momentam.app&pcampaignid=web_share',
+  ios: 'https://apps.apple.com/tz/app/momentam/id6746681576'
 }
 
 export function detectDevice() {

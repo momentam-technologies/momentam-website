@@ -55,9 +55,9 @@ export default function DownloadPage() {
   
   if (isMobile) {
     if (platform === 'ios') {
-      redirect('https://apps.apple.com/us/app/momentam/id6746681576')
+      redirect('https://apps.apple.com/tz/app/momentam/id6746681576')
     } else if (platform === 'android') {
-      redirect('https://play.google.com/store/apps/details?id=com.momentam.app')
+      redirect('https://play.google.com/store/apps/details?id=com.momentam.app&pcampaignid=web_share')
     }
   }
   

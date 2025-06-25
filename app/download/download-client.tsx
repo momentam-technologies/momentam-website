@@ -25,9 +25,9 @@ export function DownloadPageClient() {
       // Use setTimeout to ensure redirect happens after page loads
       setTimeout(() => {
         if (detectedDevice === 'ios') {
-          window.location.replace('https://apps.apple.com/us/app/momentam/id6746681576')
+          window.location.replace('https://apps.apple.com/tz/app/momentam/id6746681576')
         } else {
-          window.location.replace('https://play.google.com/store/apps/details?id=com.momentam.app')
+          window.location.replace('https://play.google.com/store/apps/details?id=com.momentam.app&pcampaignid=web_share')
         }
       }, 100)
       return
@@ -44,6 +44,19 @@ export function DownloadPageClient() {
       setQrCodeError(true)
       setQrCodeUrl(getFallbackQRCodeUrl(qrCodeUrl.split('data=')[1]?.split('&')[0] || '', 180))
     }
+  }
+
+  // Handle Android app not found with fallback
+  const handleAndroidFallback = () => {
+    // If Play Store app not found, try alternative approaches
+    const fallbackUrls = [
+      'https://play.google.com/store/apps/details?id=com.momentam.app',
+      'market://details?id=com.momentam.app',
+      'https://momentam.io/download' // Fallback to website
+    ]
+    
+    // Try the first fallback
+    window.location.replace(fallbackUrls[0])
   }
 
   // Desktop-only message since mobile users are redirected immediately

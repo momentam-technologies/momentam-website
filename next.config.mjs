@@ -1,6 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
   trailingSlash: true,
   reactStrictMode: true,
   eslint: {
@@ -14,8 +13,8 @@ const nextConfig = {
   },
   compiler: {
     // Remove console logs in production
-    removeConsole: process.env.NODE_ENV === 'production',
+    removeConsole: process.env.NODE_ENV === "production",
   },
-}
+};
 
-export default nextConfig
+export default nextConfig;

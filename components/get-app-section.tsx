@@ -80,7 +80,7 @@ export function GetAppSection() {
                 <p className="text-gray-600 mb-6 leading-relaxed min-h-[3rem]">
                   For event attendees. Book photographers and get your photos in seconds.
                 </p>
-                
+
                 {/* Features */}
                 <div className="space-y-2 mb-8">
                   <div className="flex items-center justify-center gap-2 text-sm text-gray-700">
@@ -96,7 +96,7 @@ export function GetAppSection() {
 
               {/* Download Button */}
               <div className="mt-auto">
-                <Button 
+                <Button
                   onClick={handleDownloadClick}
                   className="w-full bg-[#000099] hover:bg-[#000077] text-white py-4 rounded-2xl text-lg font-semibold transition-all duration-300 group-hover:shadow-lg"
                 >
@@ -119,8 +119,8 @@ export function GetAppSection() {
               <div className="flex justify-center mb-6">
                 <div className="w-20 h-20 bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl flex items-center justify-center shadow-lg overflow-hidden">
                   <Image
-                    src="/images/momentam icon studio.png"
-                    alt="Momentam Studio Logo"
+                    src="/images/plus.png"
+                    alt="Momentam Plus Logo"
                     width={80}
                     height={80}
                     className="w-20 h-20 object-contain rounded-2xl"
@@ -134,7 +134,7 @@ export function GetAppSection() {
                 <p className="text-gray-600 mb-6 leading-relaxed min-h-[3rem]">
                   For photographers. Manage bookings and deliver photos seamlessly.
                 </p>
-                
+
                 {/* Features */}
                 <div className="space-y-2 mb-8">
                   <div className="flex items-center justify-center gap-2 text-sm text-gray-700">
@@ -150,7 +150,7 @@ export function GetAppSection() {
 
               {/* Download Button */}
               <div className="mt-auto">
-                <Button 
+                <Button
                   onClick={handlePhotographerAppClick}
                   className="w-full bg-[#000099] hover:bg-[#000077] text-white py-4 rounded-2xl text-lg font-semibold transition-all duration-300 group-hover:shadow-lg"
                 >
@@ -163,9 +163,9 @@ export function GetAppSection() {
         </div>
       </div>
 
-      <DownloadModal 
-        isOpen={showModal} 
-        onClose={() => setShowModal(false)} 
+      <DownloadModal
+        isOpen={showModal}
+        onClose={() => setShowModal(false)}
       />
     </section>
   )
